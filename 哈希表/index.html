@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cangshen.top">
-  <title>Tag: 专题 | _扶木</title>
+  <title>哈希表 | _扶木</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="_扶木">
-<meta property="og:url" content="http://cangshen.top/tags/%E4%B8%93%E9%A2%98/index.html">
+  <meta name="description" content="哈希表哈希表学习心得">
+<meta property="og:type" content="article">
+<meta property="og:title" content="哈希表">
+<meta property="og:url" content="http://cangshen.top/%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
 <meta property="og:site_name" content="_扶木">
-<meta property="og:description" content="blog">
+<meta property="og:description" content="哈希表哈希表学习心得">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oi-wiki.org/ds/images/hashtable.svg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16148197-8ceb0f1ef8523dda.png?imageMogr2/auto-orient/strip|imageView2/2/w/458/format/webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-a9c823cd81c18ecca5ef96a3552a12c5_1440w.jpg">
+<meta property="article:published_time" content="2022-03-16T13:14:23.000Z">
+<meta property="article:modified_time" content="2022-03-16T13:15:36.517Z">
 <meta property="article:author" content="_扶木">
+<meta property="article:tag" content="专题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oi-wiki.org/ds/images/hashtable.svg">
   
     <link rel="alternative" href="/atom.xml" title="_扶木" type="application/atom+xml">
   
@@ -235,41 +242,193 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-哈希表" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      哈希表
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
         <time datetime="2022-03-16T13:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-16</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">10分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>哈希表学习心得</p>
+<span id="more"></span>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>哈希表也叫散列表，哈希表是一种数据结构，它提供了快速的插入操作和查找操作，无论哈希表总中有多少条数据，插入和查找的时间复杂度都是为O(1)，因为哈希表的查找速度非常快，所以在很多程序中都有使用哈希表，例如拼音检查器。</p>
+<p>哈希表也有自己的缺点，哈希表是基于数组的，我们知道数组创建后扩容成本比较高，所以当哈希表被填满时，性能下降的比较严重。</p>
+<p>哈希表采用的是一种转换思想，其中一个中要的概念是如何将<strong>「键」</strong>或者<strong>「关键字」</strong>转换成数组下标？在哈希表中，这个过程有哈希函数来完成，但是并不是每个<strong>「键」</strong>或者<strong>「关键字」</strong>都需要通过哈希函数来将其转换成数组下标，有些<strong>「键」</strong>或者<strong>「关键字」</strong>可以直接作为数组的下标。我们先来通过一个例子来理解这句话。</p>
+<p>我们上学的时候，大家都会有一个学号<strong>「1-n号」</strong>中的一个号码，如果我们用哈希表来存放班级里面学生信息的话，我们利用学号作为<strong>「键」</strong>或者<strong>「关键字」</strong>，这个<strong>「键」</strong>或者<strong>「关键字」</strong>就可以直接作为数据的下标，不需要通过哈希函数进行转化。如果我们需要安装学生姓名作为<strong>「键」</strong>或者<strong>「关键字」</strong>，这时候我们就需要哈希函数来帮我们转换成数组的下标。</p>
+<p><img src="https://oi-wiki.org/ds/images/hashtable.svg" alt="img"></p>
+<h2 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h2><p>哈希函数的作用是帮我们把非int的<strong>「键」</strong>或者<strong>「关键字」</strong>转化成int，可以用来做数组的下标。比如我们上面说的将学生的姓名作为<strong>「键」</strong>或者<strong>「关键字」</strong>，这是就需要哈希函数来完成。举个例子，如果键值是一个人的身份证号码，哈希函数就可以是号码的后四位，当然也可以是号码的前四位。生活中常用的“手机尾号”也是一种哈希函数。在实际的应用中，键值可能是更复杂的东西，比如浮点数、字符串、结构体等，这时候就要根据具体情况设计合适的哈希函数。哈希函数应当易于计算，并且尽量使计算出来的索引均匀分布。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/16148197-8ceb0f1ef8523dda.png?imageMogr2/auto-orient/strip|imageView2/2/w/458/format/webp" alt="img"></p>
+<p><strong>构造</strong>（做个参考，滞留余数法用的比较多）</p>
+<blockquote>
+<p><strong>直接定址法</strong></p>
+<p>例如：有一个从1到100岁的人口数字统计表，其中，年龄作为关键字，哈希函数取关键字自身。</p>
+<p><strong>数字分析法</strong></p>
+<p>有学生的生日数据如下：</p>
+<p>年.月.日</p>
+<p>75.10.03</p>
+<p>75.11.23</p>
+<p>76.03.02</p>
+<p>76.07.12</p>
+<p>75.04.21</p>
+<p>76.02.15</p>
+<p>…</p>
+<p>经分析，第一位，第二位，第三位重复的可能性大，取这三位造成冲突的机会增加，所以尽量不取前三位，取后三位比较好。</p>
+<p><strong>平方取中法</strong></p>
+<p>取关键字平方后的中间几位为哈希地址。</p>
+<p><strong>折叠法</strong></p>
+<p>将关键字分割成位数相同的几部分（最后一部分的位数可以不同），然后取这几部分的叠加和（舍去进位）作为哈希地址，这方法称为折叠法。</p>
+<p>例如：每一种西文图书都有一个国际标准图书编号，它是一个10位的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/十进制">十进制</a>数字，若要以它作关键字建立一个哈希表，当馆藏书种类不到10,000时，可采用此法构造一个四位数的哈希函数。</p>
+<p><strong>除留余数法</strong></p>
+<p>取关键字被某个不大于哈希表表长m的数p除后所得余数为哈希地址。</p>
+<p>H(key)=key MOD p (p&lt;=m)</p>
+<p><strong>随机数法</strong></p>
+<p>选择一个随机函数，取关键字的随机函数值为它的哈希地址，即</p>
+<p>H(key)=random(key），其中random为随机函数。通常用于关键字长度不等时采用此法。</p>
+<p>若已知哈希函数及冲突处理方法，哈希表的建立步骤如下：</p>
+<p>Step1.　取出一个数据元素的关键字key，计算其在哈希表中的存储地址D=H(key）。若存储地址为D的存储空间还没有被占用，则将该数据元素存入；否则发生冲突，执行Step2。</p>
+<p>Step2.　根据规定的冲突处理方法，计算关键字为key的数据元素之下一个存储地址。若该存储地址的存储空间没有被占用，则存入；否则继续执行Step2，直到找出一个存储空间没有被占用的存储地址为止。</p>
+</blockquote>
+<h2 id="冲突与处理"><a href="#冲突与处理" class="headerlink" title="冲突与处理"></a>冲突与处理</h2><p>如果对于任意的键值，哈希函数计算出来的索引都不相同，那只用根据索引把 <code>(key, value)</code> 放到对应的位置就行了。但实际上，常常会出现两个不同的键值，他们用哈希函数计算出来的索引是相同的，如上图，4和7经过哈希函数的计算得到的都是1。这时候就需要一些方法来处理冲突。</p>
+<h3 id="拉链法"><a href="#拉链法" class="headerlink" title="拉链法"></a>拉链法</h3><p>拉链法也称开散列法（open hashing）。</p>
+<p>拉链法是在每个存放数据的地方开一个链表，如果有多个键值索引到同一个地方，只用把他们都放到那个位置的链表里就行了。查询的时候需要把对应位置的链表整个扫一遍，对其中的每个数据比较其键值与查询的键值是否一致。如果索引的范围是 $1……M$，哈希表的大小为 $N$，那么一次插入/查询需要进行期望 $O(\frac{N}{M})$次比较。</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向哈希表中插入一个数</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> k = (x % N + N) % N;</span><br><span class="line">        e[idx] = x;</span><br><span class="line">        ne[idx] = h[k];</span><br><span class="line">        h[k] = idx ++ ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在哈希表中查询某个数是否存在</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> k = (x % N + N) % N;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = h[k]; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">            <span class="keyword">if</span> (e[i] == x)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="开放寻址法"><a href="#开放寻址法" class="headerlink" title="开放寻址法"></a>开放寻址法</h3><p>此法的思想是通过探测并在哈希表中查找与我们最初进行散列对应的位置在偏移后的另一个位置来处理哈希冲突。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-a9c823cd81c18ecca5ef96a3552a12c5_1440w.jpg" alt="img"></p>
+<p>我们向哈希表中添加一个元素<code>钱多多</code>，<code>钱多多</code>经过哈希函数后得到的数组下标为<code>0</code>，但是在<code>0</code>的位置已经有<code>张三</code>了，所以下标往前移，直到下标<code>4</code>才为空，所以就将元素<code>钱多多</code>添加到数组下标为<code>4</code>的地方。</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">int</span> h[N];</span><br><span class="line"><span class="comment">// 如果x在哈希表中，返回x的下标；如果x不在哈希表中，返回x应该插入的位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = (x % N + N) % N;</span><br><span class="line">    <span class="keyword">while</span> (h[t] != null &amp;&amp; h[t] != x)</span><br><span class="line">    &#123;</span><br><span class="line">        t ++ ;</span><br><span class="line">        <span class="keyword">if</span> (t == N) t = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符串哈希"><a href="#字符串哈希" class="headerlink" title="字符串哈希"></a>字符串哈希</h2><p>将一个字符串转化成一个整数，并保证字符串不同，其哈希值不同。类似于整数的二进制数表示的思想一样。</p>
+<p>因此将一个字符串看成一个R进制数，对于一个字符串：$S=s1s2…sn$，如果是全都是小写字母，可以将每个字符转换成$idx(si)=si-‘a’+1$，如果有大写，有小写，有数字不方便处理，可以直接用字符的ASCII码表示。</p>
+<blockquote>
+<p>对字符的再次转换编码要注意不能从0开始，这就是为什么+1的原因。<br>假设a的编码为0，那么”aa”、“aaa”、“aaaa”的哈希值都是0，冲突严重。</p>
+</blockquote>
+<p><strong>哈希函数</strong><br>将字符串(R进制数)转换成十进制数通过哈希函数来完成：<code>Hash[i] = ( Hash[i-1]*R + idx(si) )%mod</code>，i 从1 到 n，通过递推中途可以求出前缀子串”$s<em>1$”、“$s_1s_2$”、“$s_1s_2s_3$”……，一直到”$s_1s_2……s_n$”的哈希值，即最终的Hash[n]，我们的字符串S的哈希值，它的展开写法为：$Hash[n]=(s_1 × R</em>{n-1} + s<em>2 × R</em>{n-2} + …… +s_{n-1} × R + s_n )%mod$</p>
+<p>规定：为了统一化递推公式，<code>Hash[0]=0</code></p>
+<p>一般地，<br>R取131 或者13331 ；<br>mod取264 ，常利用unsigned long long 自然溢出，相当于自动对264取模。因为ULL也是64位</p>
+<p>要注意，这种单哈希方法的转换并不能保证百分之百不冲突的，即可能存在两个字符串对应的哈希值(十进制数)一样的情况，但是不安全因素很小，可以忽略。</p>
+<p><strong>前缀子串</strong><br>在我们求一个字符串的哈希值的时候，通常使用的是递推的方法实现的，而不使用它的展开式，因此必然会求出这个字符串的前缀子串，可以用一个数组记录下来，有了它的前缀子串，我们就可以只用O(1)的复杂度求出这个字符串任意子串的哈希值：通过前缀和的思想。</p>
+<p>结论：求父串中从下标l到下标r的字符串对应的哈希值：$h[r]-h[l-1]×R^{r-l+1}$ <code>ULL h[N];</code></p>
+<p>字符串：$S=s_1s_2…s_n$，假设l=4，r=6，那么就是要求出$s_4s_5s_6$的哈希值，即$s_4×R^2 +s_5×R+s_6$<br>我们已知$h[6]=s_1×R^5 +s_2×R^4+s_3×R^3 + s_4×R^2 +s_5×R+s_6$<br>　$h[4-1]=h[3]=s_1×R^2 +s_2×R+s_3$<br>　　$R^3 ×h[3] =s_1×R^5 +s_2×R^4+s_3×R^3$</p>
+<p>但是观察到h[6]和h[3]由于幂不匹配不能直接减，所以要先给h[3]乘一个数，让其和h[6]的前三位幂匹配，得到后三位，这个数就是$R^{6-4+1}$ ，即r和l-1之间相差的位数，直接减即可。</p>
+<blockquote>
+<p>$R^{r-l+1}$ 怎么求呢？<br>在我们求hash[n]递推求其前缀的子串的时候，也可以求出Rn ，这也是一个递推的过程：$R^n = R^{n-1} × R$，用一个数组来维护，R[i]即为$R_i$</p>
+</blockquote>
+<p>最后，存储字符串的数组，从下标0存储还是从下标1存储都行，但是为了和递推数组hash以及R保持一致，他们的递推式里都涉及了i-1，所以下标都从1开始比较好。</p>
+<blockquote>
+<p>“hash[0]代表没有子串，hash[1]代表只有1个字符的前缀子串，hash[k]表示有k个字符的前缀子串”</p>
+</blockquote>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ULL;</span><br><span class="line">ULL h[N], p[N]; <span class="comment">// h[k]存储字符串前k个字母的哈希值, p[k]存储 P^k mod 2^64</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">&#123;</span><br><span class="line">    h[i] = h[i - <span class="number">1</span>] * P + str[i];</span><br><span class="line">    p[i] = p[i - <span class="number">1</span>] * P;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算子串 str[l ~ r] 的哈希值</span></span><br><span class="line"><span class="function">ULL <span class="title">get</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> h[r] - h[l - <span class="number">1</span>] * p[r - l + <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>想喝奶茶……<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/%E5%93%88%E5%B8%8C%E8%A1%A8/" target="_blank">哈希表</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          _扶木
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://cangshen.top/哈希表/" title="哈希表" target="_blank">http://cangshen.top/哈希表/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -281,201 +440,117 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://cangshen.top/%E5%93%88%E5%B8%8C%E8%A1%A8/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="archive-article-date">
-        <time datetime="2022-03-15T13:36:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-15</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/%E5%B9%B6%E6%9F%A5%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">并查集</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/%E5%B9%B6%E6%9F%A5%E9%9B%86/" target="_blank">并查集</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">专题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/%E5%9B%BE%E8%AE%BA/" class="archive-article-date">
-        <time datetime="2022-03-14T11:46:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/%E5%9B%BE%E8%AE%BA/" target="_blank">图论（一）</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">专题</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/%E7%AE%97%E6%B3%95%E8%AE%B2%E5%A0%82%EF%BC%88%E5%9B%9B%EF%BC%89%E9%A2%98%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2021-10-28T16:55:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-29</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/%E7%AE%97%E6%B3%95%E8%AE%B2%E5%A0%82%EF%BC%88%E5%9B%9B%EF%BC%89%E9%A2%98%E8%A7%A3/" target="_blank">算法讲堂（四）题解</a>
-  
-    </h1>
-  
+<div id="SOHUCS" sid="哈希表" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyvJ1Scu8",
+        conf: "prod_2b1472a380a1dd2c35baa9191bc87633"
+    });
+</script>
+</script>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">专题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/kuangbin%E4%B8%93%E9%A2%98-%E6%90%9C%E7%B4%A2/" class="archive-article-date">
-        <time datetime="2021-09-26T11:08:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-26</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/kuangbin%E4%B8%93%E9%A2%98-%E6%90%9C%E7%B4%A2/" target="_blank">kuangbin专题-搜索（未完成）</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">专题</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
 
 
           </div>
@@ -516,9 +591,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
