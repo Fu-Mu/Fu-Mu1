@@ -330,25 +330,25 @@
 <p><img src="https://oi-wiki.org/ds/images/disjoint-set.svg" alt="图题无关"></p>
 <h2 id="并查集的实现"><a href="#并查集的实现" class="headerlink" title="并查集的实现"></a>并查集的实现</h2><p>通俗地讲一个故事：几个家族进行宴会，但是家族普遍长寿，所以人数众多。由于长时间的分离以及年龄的增长，这些人逐渐忘掉了自己的亲人，只记得自己的爸爸是谁了，而最长者（称为「祖先」）的父亲已经去世，他只知道自己是祖先。为了确定自己是哪个家族，他们想出了一个办法，只要问自己的爸爸是不是祖先，一层一层的向上问，直到问到祖先。如果要判断两人是否在同一家族，只要看两人的祖先是不是同一人就可以了。</p>
 <p>1.每个人的祖先都是他们自己(因为他们还不知道谁是自己的祖先，只认识自己的爸爸)</p>
-<p><img src="https://pic4.zhimg.com/80/v2-09fa3fa35e5411444b327d9cb9a31057_1440w.jpg" alt></p>
+<p><img src="https://pic4.zhimg.com/80/v2-09fa3fa35e5411444b327d9cb9a31057_1440w.jpg" alt=""></p>
 <p>2.问自己的爸爸是不是祖先，3号的爸爸是1号</p>
-<p><img src="https://pic4.zhimg.com/80/v2-3bf6c1a6ecf87fa93f4dbab2012446c7_1440w.jpg" alt></p>
+<p><img src="https://pic4.zhimg.com/80/v2-3bf6c1a6ecf87fa93f4dbab2012446c7_1440w.jpg" alt=""></p>
 <ol>
 <li>2号的爸爸也是1号</li>
 </ol>
-<p><img src="https://pic4.zhimg.com/80/v2-be12a6c795572d2acd77dcd49de35127_1440w.jpg" alt></p>
+<p><img src="https://pic4.zhimg.com/80/v2-be12a6c795572d2acd77dcd49de35127_1440w.jpg" alt=""></p>
 <ol>
 <li>5号6号的爸爸是4号</li>
 </ol>
-<p><img src="https://pic1.zhimg.com/80/v2-3c353bc781c7f3553079d541a9cfdc28_1440w.jpg" alt></p>
+<p><img src="https://pic1.zhimg.com/80/v2-3c353bc781c7f3553079d541a9cfdc28_1440w.jpg" alt=""></p>
 <ol>
 <li>4号的爸爸是1号</li>
 </ol>
-<p><img src="https://pic3.zhimg.com/80/v2-6362d8b13705d5ba17b19cdeee453022_1440w.jpg" alt></p>
+<p><img src="https://pic3.zhimg.com/80/v2-6362d8b13705d5ba17b19cdeee453022_1440w.jpg" alt=""></p>
 <ol>
 <li>这样就形成了一棵树，要寻找集合的代表元素，只需要一层一层往上访问<strong>父节点</strong>（图中箭头所指的圆），直达树的<strong>根节点</strong>（图中橙色的圆）即可。根节点的父节点是它自己。</li>
 </ol>
-<p>​        <img src="https://pic2.zhimg.com/80/v2-cca3ddf5806a221201ed78caf1d27041_1440w.jpg" alt></p>
+<p>​        <img src="https://pic2.zhimg.com/80/v2-cca3ddf5806a221201ed78caf1d27041_1440w.jpg" alt=""></p>
 <p>用这种方法，我们可以写出最简单版本的并查集代码。</p>
 <p><strong>初始化</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> fa[MAXN];<span class="comment">//fa[x]表示x的父节点为fa[x]</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        fa[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
