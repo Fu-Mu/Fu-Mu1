@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=f_%7Bs_i%7D">
 <meta property="og:image" content="https://oi-wiki.org/math/game-theory/images/game1.png">
 <meta property="article:published_time" content="2022-03-18T13:45:03.000Z">
-<meta property="article:modified_time" content="2022-03-18T14:25:34.954Z">
+<meta property="article:modified_time" content="2022-03-19T11:15:11.330Z">
 <meta property="article:author" content="_扶木">
 <meta property="article:tag" content="专题">
 <meta name="twitter:card" content="summary">
@@ -414,7 +414,7 @@
 <p>首先定义<code>mex</code>运算，这是一种集合中的运算，它表示<code>最小的不属于集合的非负整数</code></p>
 <p>例如$mex{1,2,3}=0$，$mex{0,2}=1$，$mex{0,1,2,3}=4$，$mex{}=0$</p>
 <p>对于给定的有向无环图，定义每个点的SG函数为</p>
-<p>$SG(x)=mex{ SG(y) | x不能到达y}$</p>
+<p>$SG(x)=mex{ SG(y) | y是x的后继}$</p>
 <p>然而单单一个这样的空洞的函数是解决不了问题的，我们需要分析一下它的性质</p>
 <ul>
 <li>所有汇点的$SG$函数为$0$</li>
@@ -423,14 +423,14 @@
 <ul>
 <li>当$SG(x)=0$时,该节点为必败点</li>
 </ul>
-<p>由SGSG函数的性质易知该节点的所有后继节点$SG$值均不为$0$</p>
+<p>由$SG$函数的性质易知该节点的所有后继节点$SG$值均不为$0$</p>
 <p>满足必败态的定义</p>
 <ul>
 <li>当$SG(x)≠0$,该节点为必胜点</li>
 </ul>
-<p>由SGSG函数的定义可知该节点的后继节点中一定有一个节点$SG=0$</p>
+<p>由$SG$函数的定义可知该节点的后继节点中一定有一个节点$SG=0$</p>
 <p>满足必胜态的定义</p>
-<p>这样我们通过最基本的SGSG值的定义，我们就可以判断出一个状态是必胜态还是必败态</p>
+<p>这样我们通过最基本的$SG$值的定义，我们就可以判断出一个状态是必胜态还是必败态</p>
 <p>这个问题实际上就是我们前面讲的巴什博弈</p>
 <p>如果这个问题再复杂一点呢？</p>
 <p>当这个棋盘上有$n$个棋子的时候呢？</p>
@@ -438,7 +438,7 @@
 <p>当$SG(x)=k$时，它表明后继状态中含有$SG(y)=1…k−1$</p>
 <p>也就是说，我们从$k$可以转移到$1…k−1$中的任何一个状态，而当前共有$n$个棋子。</p>
 <p>这会让你想到什么？</p>
-<p>nim取石子游戏</p>
+<p>—nim取石子游戏</p>
 <p>那我们是不是也可以推出：</p>
 <p>如果在nim游戏中的$n$堆石子的$SG$值异或和不为$0$就说明先手必胜呢？</p>
 <p>这是肯定的，因为当你打出nim游戏的$SG$值表时就会发现，$SGnim(x)=x$</p>
@@ -590,6 +590,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2022%E6%98%A5%E5%AD%A3%E7%AE%97%E6%B3%95%E8%AE%B2%E5%A0%821/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          2022春季算法讲堂(一)
+        
+      </div>
+    </a>
   
   
     <a href="/%E5%93%88%E5%B8%8C%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
@@ -786,15 +795,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">每日一题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">专题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">每日一题</a>
               </li>
              
               <li class="article-tag-list-item">
