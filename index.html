@@ -242,6 +242,188 @@
             
 
   
+    <article id="post-春季每日一题2022Week-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/%E6%98%A5%E5%AD%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982022Week-3/" target="_blank">春季每日一题2022Week-3</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/%E6%98%A5%E5%AD%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982022Week-3/" class="archive-article-date">
+        <time datetime="2022-04-06T11:39:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="春季每日一题2022-Week-3"><a href="#春季每日一题2022-Week-3" class="headerlink" title="春季每日一题2022 Week 3"></a>春季每日一题2022 Week 3</h1><p>Week3 3月28日~4月3日</p>
+<h2 id="3-281683-困牛放牧-AcWing题库"><a href="#3-281683-困牛放牧-AcWing题库" class="headerlink" title="3.281683. 困牛放牧 - AcWing题库"></a>3.28<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1685/">1683. 困牛放牧 - AcWing题库</a></h2><p><strong>解题</strong></p>
+<p>模拟，如果一开始就相邻，则输出两个零；</p>
+<p>如果有两个相邻，则最小值一定为1，否则为2；</p>
+<p>最大值为每两个奶牛最大的间隔数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> a,b,c;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">	<span class="keyword">int</span> imax=<span class="built_in">max</span>(a,<span class="built_in">max</span>(b,c)),imin=<span class="built_in">min</span>(a,<span class="built_in">min</span>(b,c)),imid=a+b+c-imax-imin;</span><br><span class="line">	<span class="keyword">if</span>(imax-imid==<span class="number">1</span>&amp;&amp;imid-imin==<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;<span class="number">0</span>&lt;&lt;endl&lt;&lt;<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(imax-imid==<span class="number">2</span>||imid-imin==<span class="number">2</span>) cout&lt;&lt;<span class="number">1</span>&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">else</span> cout&lt;&lt;<span class="number">2</span>&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">int</span> d=<span class="built_in">max</span>(imax-imid,imid-imin);</span><br><span class="line">	cout&lt;&lt;d<span class="number">-1</span>;	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-291470-水桶传递队列-AcWing题库"><a href="#3-291470-水桶传递队列-AcWing题库" class="headerlink" title="3.291470. 水桶传递队列 - AcWing题库"></a>3.29<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1472/">1470. 水桶传递队列 - AcWing题库</a></h2><p><strong>解题</strong></p>
+<p>BFS</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;</span><br><span class="line">queue&lt;PII&gt; q;</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">12</span>][<span class="number">12</span>], st[<span class="number">12</span>][<span class="number">12</span>];</span><br><span class="line"><span class="keyword">int</span> cnt[<span class="number">12</span>][<span class="number">12</span>];</span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> sx, sy;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">10</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a[i][j];</span><br><span class="line">            <span class="keyword">if</span> (a[i][j] == <span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sx = i, sy = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    q.<span class="built_in">push</span>(&#123;sx, sy&#125;);</span><br><span class="line">    st[sx][sy] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        PII t = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (t.first + dx[i] &gt; <span class="number">0</span> &amp;&amp; t.first + dx[i] &lt; <span class="number">11</span> &amp;&amp; t.second + dy[i] &gt; <span class="number">0</span> &amp;&amp; t.second + dy[i] &lt; <span class="number">11</span> &amp;&amp;</span><br><span class="line">                    a[t.first + dx[i]][t.second + dy[i]]!=<span class="string">&#x27;R&#x27;</span>&amp;&amp;!st[t.first + dx[i]][t.second + dy[i]])</span><br><span class="line">                &#123;</span><br><span class="line">                    st[t.first+dx[i]][t.second+dy[i]]=<span class="number">1</span>;</span><br><span class="line">                    cnt[t.first+dx[i]][t.second+dy[i]]=cnt[t.first][t.second]+<span class="number">1</span>;</span><br><span class="line">                    q.<span class="built_in">push</span>(&#123;t.first+dx[i],t.second+dy[i]&#125;);</span><br><span class="line">                    <span class="keyword">if</span> (a[t.first + dx[i]][t.second + dy[i]] == <span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        cout&lt;&lt;cnt[t.first+dx[i]][t.second+dy[i]]<span class="number">-1</span>;</span><br><span class="line">                        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/%E6%98%A5%E5%AD%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982022Week-3/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-春季每日一题2022Week-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/%E6%98%A5%E5%AD%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982022Week-2/" target="_blank">春季每日一题2022Week_2</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/%E6%98%A5%E5%AD%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982022Week-2/" class="archive-article-date">
+        <time datetime="2022-03-22T11:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="春季每日一题2022-Week-2"><a href="#春季每日一题2022-Week-2" class="headerlink" title="春季每日一题2022 Week 2"></a>春季每日一题2022 Week 2</h1><p>Week2 3月21日~3月27日</p>
+    
+    <a class="article-more-a" href="/%E6%98%A5%E5%AD%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982022Week-2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/%E6%98%A5%E5%AD%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982022Week-2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2022春季算法讲堂1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -917,182 +1099,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9823/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9822/" target="_blank">每日一题</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9822/" class="archive-article-date">
-        <time datetime="2021-11-16T13:13:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="每日一题"><a href="#每日一题" class="headerlink" title="每日一题"></a>每日一题</h1><h2 id="11-153794-构造字符串-AcWing题库"><a href="#11-153794-构造字符串-AcWing题库" class="headerlink" title="11.153794. 构造字符串 - AcWing题库"></a>11.15<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3797/">3794. 构造字符串 - AcWing题库</a></h2>
-    
-    <a class="article-more-a" href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9822/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9822/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9821/" target="_blank">每日一题</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9821/" class="archive-article-date">
-        <time datetime="2021-11-16T12:58:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="每日一题"><a href="#每日一题" class="headerlink" title="每日一题"></a>每日一题</h1><h2 id="11-143793-最大分数-AcWing题库"><a href="#11-143793-最大分数-AcWing题库" class="headerlink" title="11.143793. 最大分数 - AcWing题库"></a>11.14<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3796/">3793. 最大分数 - AcWing题库</a></h2>
-    
-    <a class="article-more-a" href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9821/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9821/">展开全文 >></a>
     </p>
     
 
